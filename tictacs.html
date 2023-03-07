@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TicTacToe</title>
+
+	<style type="text/css">
+		.buttons
+{
+	height: 80px;
+	width: 80px;
+	margin: 2px;
+	font-size: 30px;
+	font-weight: bold;
+
+}
+
+.rese
+{
+	height: 50px;
+	width: 200px;
+	margin: 2px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+
+
+body
+{
+	text-align: center;
+	background-color: seagreen;
+	color: whitesmoke;
+	font-family: arial;
+	font-weight: bold;
+}
+	</style>
+</head>
+<body>
+	<h4></h4>
+	<h1>Tic Tac Toe</h1>
+
+	<button id="btn1" class="buttons" onclick="setter(btn1)">-</button>
+	<button class="buttons" id="btn2" onclick="setter(btn2)">-</button>
+	<button class="buttons"id="btn3" onclick="setter(btn3)">-</button><br>
+	<button class="buttons"id="btn4" onclick="setter(btn4)">-</button>
+	<button class="buttons"id="btn5" onclick="setter(btn5)">-</button>
+	<button class="buttons"id="btn6" onclick="setter(btn6)">-</button><br>
+	<button class="buttons"id="btn7" onclick="setter(btn7)">-</button>
+	<button class="buttons"id="btn8" onclick="setter(btn8)">-</button>
+	<button class="buttons"id="btn9" onclick="setter(btn9)">-</button>
+	<h3 id="turn"></h3>
+	<h2 id="winner"></h2>
+	<button class="rese" onclick="reset()">RESET</button>
+<script>
+b1 = document.getElementById("btn1");
+b2 = document.getElementById("btn2");
+b3 = document.getElementById("btn3");
+b4 = document.getElementById("btn4");
+b5 = document.getElementById("btn5");
+b6 = document.getElementById("btn6");
+b7 = document.getElementById("btn7");
+b8 = document.getElementById("btn8");
+b9 = document.getElementById("btn9");
+prom = document.getElementById("winner")
+turn = document.getElementById("turn")
+
+x= Math.random() * (11);
+n=Math.ceil(x);
+temp = +n + 9
+function setter(btn){
+	
+	if(btn.innerHTML === 'X'){
+		btn.innerHTML = 'X';
+	}
+	else if(btn.innerHTML === 'O'){
+		btn.innerHTML = 'O';
+	}else
+	{
+		if(n%2 === 0){
+			btn.innerHTML = 'X';
+			turn.innerText = "O turn"
+		}
+		if(n%2 === 1){
+			btn.innerHTML = 'O';
+			turn.innerText = "X turn";
+		}
+		n=+n+1
+	}
+	
+
+	if(b1.innerText == b2.innerText && b2.innerText == b3.innerText && b2.innerText != "-" && b1.innerText != "-" && b3.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b1.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b4.innerText == b5.innerText && b5.innerText == b6.innerText && b4.innerText != "-" && b5.innerText != "-" && b6.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b5.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b7.innerText == b8.innerText && b8.innerText == b9.innerText && b7.innerText != "-" && b8.innerText != "-" && b9.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b8.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b1.innerText == b4.innerText && b4.innerText == b7.innerText && b1.innerText != "-" && b4.innerText != "-" && b7.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b4.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b2.innerText == b5.innerText && b5.innerText == b8.innerText && b2.innerText != "-" && b5.innerText != "-" && b8.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b5.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b3.innerText == b6.innerText && b6.innerText == b9.innerText && b3.innerText != "-" && b6.innerText != "-" && b9.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b6.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b7.innerText == b5.innerText && b5.innerText == b3.innerText && b7.innerText != "-" && b5.innerText != "-" && b3.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b3.innerText;
+		turn.innerText = "GGWP!!!";
+	}else if(b1.innerText == b5.innerText && b5.innerText == b9.innerText && b1.innerText != "-" && b5.innerText != "-" && b9.innerText != "-"){
+		prom.innerHTML = "The Winner IS : " + b9.innerText;
+		turn.innerText = "GGWP!!!";
+	}
+
+	else if(n === temp){
+		prom.innerHTML = "ITS A TIE!!";
+		turn.innerText = "GGWP!!!";
+	}
+
+}
+
+function reset(){
+b1.innerText= '-';
+b2.innerText= '-';
+b3.innerText= '-';
+b4.innerText= '-';
+b6.innerText= '-';
+b5.innerText= '-';
+b7.innerText= '-';
+b8.innerText= '-';
+b9.innerText= '-';
+prom.innerHTML = "";
+turn.innerText = "LES GO AGAIN!";
+x= Math.random() * (11);
+n=Math.ceil(x);
+temp=0;
+temp = +n + 9;
+
+
+}
+</script>
+</body>
+</html>
